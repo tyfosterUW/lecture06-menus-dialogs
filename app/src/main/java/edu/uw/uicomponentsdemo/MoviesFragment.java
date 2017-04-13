@@ -4,12 +4,16 @@ package edu.uw.uicomponentsdemo;
  * Created by joelross on 4/12/17.
  */
 
+import android.app.Dialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -34,7 +38,7 @@ import java.util.ArrayList;
 /**
 * A simple {@link Fragment} subclass representing a list of Movie search results.
 */
-public class MoviesFragment extends Fragment {
+public class MoviesFragment extends DialogFragment {
 
     private static final String TAG = "MoviesFragment";
     private static final String SEARCH_PARAM_KEY = "search_term";
@@ -54,6 +58,11 @@ public class MoviesFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.frag_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
